@@ -138,7 +138,6 @@
               break;
           }
         }
-
       });
       console.log(response);
       response.then(function(json){
@@ -429,6 +428,14 @@
             <select name="node-filter" id="node-filter" placeholder="Node namespaces included in path" multiple>
             </select>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" id="node-enforce-list" class="form-control" title="Paths are forced to conatin the entered nodes" placeholder="Enforced node names (comma separated)">
+        </div>
+        <div class="col">
+          <input type="text" id="edge-hash-enforce-list" class="form-control" title="Paths are forced to conatin the entered statement hashes" placeholder="Enforced edge hashes (comma separated)">
         </div>
       </div>
       <div class="row">
