@@ -91,12 +91,22 @@
       for (nn of document.getElementById('node-blacklist').value.split(',')) {
         // Strip leasing and trailing whitespace and push to array
         if (nn.replace(/\s/g, '')) nodeBlackList.push(nn.replace(/\s/g, ''));
-      };
-      var edgeHashBlacklist = [];
+      }
+      var nodeEnforceList = [];
+      for (nn of document.getElementById('node-enforce-list').value.split(',')) {
+        // Strip leasing and trailing whitespace and push to array
+        if (nn.replace(/\s/g, '')) nodeEnforceList.push(nn.replace(/\s/g, ''));
+      }
+      var edgeHashBlackList = [];
       for (eh of document.getElementById('edge-hash-blacklist').value.split(',')) {
         // Strip whitespace
-        if (eh.replace(/\s/g, '')) edgeHashBlacklist.push(eh.replace(/\s/g, ''))
-      };
+        if (eh.replace(/\s/g, '')) edgeHashBlackList.push(eh.replace(/\s/g, ''))
+      }
+      var edgeHashEnforceList = [];
+      for (eh of document.getElementById('edge-hash-enforce-list').value.split(',')) {
+        // Strip whitespace
+        if (eh.replace(/\s/g, '')) edgeHashEnforceList.push(eh.replace(/\s/g, ''))
+      }
       var statusBox = document.getElementById('query-status');
       var source = document.getElementById('source').value;
       var target = document.getElementById('target').value;
@@ -104,9 +114,11 @@
         source: source,
         target: target,
         stmt_filter: stmtFilterList,
-        edge_hash_blacklist: edgeHashBlacklist,
+        edge_hash_blacklist: edgeHashBlackList,
+        edge_hash_enforce_list: edgeHashEnforceList,
         node_filter: nodeFilterList,
         node_blacklist: nodeBlackList,
+        node_enforce_list: nodeEnforceList,
         path_length: parseInt(document.getElementById('path-length').value) || false,
         // sign: document.getElementById('sign-dd').value,
         weighted: document.getElementById('weighted-search').checked,
